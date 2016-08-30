@@ -27,9 +27,7 @@ print Product.create(brand: "Udacity", name: "doll", price: 5.99)
 # puts "RETURN ALL PRODUCTS"
 # puts "-------------------"
 print Product.all
-print "LINE"
-print Product.first(3)
-#
+
 # puts "--------------------------------------------------------------"
 # puts "TEST ERROR HANDLING FOR DELETE - COMMENT OUT BEFORE SUBMITTING"
 # puts "--------------------------------------------------------------"
