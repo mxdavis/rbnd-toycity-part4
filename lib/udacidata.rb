@@ -4,7 +4,6 @@ require 'csv'
 
 class Udacidata
   # Your code goes here!
-  create_finder_methods :brand, :name
 
   @@data_path = File.dirname(__FILE__) + "/../data/data.csv"
 
@@ -19,8 +18,17 @@ class Udacidata
   def self.all
   	all_csv_data = []
   	CSV.foreach(@@data_path, headers: true) do |row|
-      all_csv_data << row
+      all_csv_data <<  row
     end
     return all_csv_data
+  end
+
+  def self.first(n)
+  	all_data = self.all
+  	if n.nil?
+      return all_data.first(1)
+    else 
+      return all_data.first(n)	
+   end
   end
 end
