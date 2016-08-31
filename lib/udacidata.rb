@@ -16,6 +16,14 @@ class Udacidata
     return item
   end 
 
+  # def self.create(opts={})
+  #   item = self.new(opts)
+  #   CSV.open(@@data_path, "a+") do |csv|
+  #     csv << item[brand: item[:brand], name: item[:name], price: item[:price]]
+  #   end
+  #   return item
+  # end
+
   def self.all
   	all_csv_data = []
   	CSV.foreach(@@data_path, headers: true) do |row|
@@ -26,8 +34,8 @@ class Udacidata
 
   def self.first(n=1)
   	all_data = self.all
-  	if n.nil?
-      return all_data.first(1)
+  	if n == 1
+      return all_data.first(1)[0]
     else 
       return all_data.first(n)	
    end
@@ -35,8 +43,8 @@ class Udacidata
 
   def self.last(n=1)
   	all_data = self.all
-  	if n.nil?
-      return all_data.last(1)
+  	if n == 1
+      return all_data.last(1)[0]
     else 
       return all_data.last(n)	
    end
