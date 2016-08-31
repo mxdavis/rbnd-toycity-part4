@@ -27,9 +27,9 @@ puts "-------------------"
 puts "RETURN ALL PRODUCTS"
 puts "-------------------"
 print Product.all
-puts "--------------------------------------------------------------"
-puts "TEST ERROR HANDLING FOR DELETE - COMMENT OUT BEFORE SUBMITTING"
-puts "--------------------------------------------------------------"
+# puts "--------------------------------------------------------------"
+# puts "TEST ERROR HANDLING FOR DELETE - COMMENT OUT BEFORE SUBMITTING"
+# puts "--------------------------------------------------------------"
 # print Product.destroy(1000000000000)
 #
 # puts "------------------------------------------------------------"
@@ -37,8 +37,8 @@ puts "--------------------------------------------------------------"
 # puts "------------------------------------------------------------"
 # print Product.find(1000000000000)
 #
-# puts
-# puts "--------------------"
+puts
+puts "--------------------"
 puts "RETURN FIRST PRODUCT"
 puts "--------------------"
 print Product.first
@@ -91,25 +91,25 @@ puts "-------------------------------"
 puts "RETURN PRODUCTS WITH BRAND UDACITY"
 puts "-------------------------------"
 # print Product.where(brand: "Udacity")
-#
-# puts
-# puts "-------------------------------------"
-# puts "RETURN FIRST PRODUCT WITH GIVEN BRAND"
-# puts "-------------------------------------"
-# print Product.find_by_brand("Udacity")
-# puts
-#
-# puts
-# puts "------------------------------------"
-# puts "RETURN FIRST PRODUCT WITH GIVEN NAME"
-# puts "------------------------------------"
-# print Product.find_by_name("yoyo")
-# puts
-#
-# puts
-# puts "----------------------------"
-# puts "RETURN HASH WITH NAME COUNTS"
-# puts "----------------------------"
+
+puts
+puts "-------------------------------------"
+puts "RETURN FIRST PRODUCT WITH GIVEN BRAND"
+puts "-------------------------------------"
+print Product.find_by_brand("Udacity")
+puts
+
+puts
+puts "------------------------------------"
+puts "RETURN FIRST PRODUCT WITH GIVEN NAME"
+puts "------------------------------------"
+print Product.find_by_name("yoyo")
+puts
+
+puts
+puts "----------------------------"
+puts "RETURN HASH WITH NAME COUNTS"
+puts "----------------------------"
 # print Analyzable::count_by_name(Product.all)
 #
 # puts

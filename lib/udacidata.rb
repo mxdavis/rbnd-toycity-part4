@@ -7,7 +7,8 @@ class Udacidata
 
 
   @@data_path = File.dirname(__FILE__) + "/../data/data.csv"
-
+  create_finder_methods :brand, :name
+  
   def self.create(opts={})
     item = self.new(opts)
     CSV.open(@@data_path, "a+") do |csv|
@@ -15,14 +16,6 @@ class Udacidata
     end
     return item
   end 
-
-  # def self.create(opts={})
-  #   item = self.new(opts)
-  #   CSV.open(@@data_path, "a+") do |csv|
-  #     csv << item[brand: item[:brand], name: item[:name], price: item[:price]]
-  #   end
-  #   return item
-  # end
 
   def self.all
   	all_csv_data = []
@@ -60,17 +53,6 @@ class Udacidata
     end
   end
   
-  # def self.destroy(opts={})
-  #   to_delete = find(id)
-  #   table = CSV.table(@@data_path)
-  #   table.delete_if do |row|
-  #     row[:id] == opts[:id]
-  #   end
-  #   CSV.open(@@data_path, "w") do |csv|
-  #     csv << ["id", "brand", "product", "price"]
-  #     end
-  #   return to_delete
-  # end
 def self.destroy(id)
   to_delete = find(id)
   table = CSV.table(@@data_path)
@@ -83,5 +65,10 @@ def self.destroy(id)
   return to_delete
 end
 
+# def product_where(opts)
+# # if opts == class vale
+# # send class into method
+# # return the array
+# end
   
 end
