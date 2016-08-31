@@ -5,6 +5,7 @@ require 'csv'
 class Udacidata
   # Your code goes here!
 
+
   @@data_path = File.dirname(__FILE__) + "/../data/data.csv"
 
   def self.create(opts={})
@@ -18,7 +19,7 @@ class Udacidata
   def self.all
   	all_csv_data = []
   	CSV.foreach(@@data_path, headers: true) do |row|
-      all_csv_data <<  row.to_hash
+      all_csv_data <<  row
     end
     return all_csv_data
   end
@@ -40,4 +41,30 @@ class Udacidata
       return all_data.last(n)	
    end
   end
+
+ def self.find(id)
+   all_data = self.all
+   return_id = all_data.find { |p| p.id == id }
+    if !return_id
+      raise ProductNotFoundError
+    end
+    return return_id
+  end
+  
+  def self.destroy(id)
+    to_delete = self.find(id)
+    table = CSV.table(@@data_path)
+    table.delete_if do |row|
+      row[:id] == id
+    end
+    CSV.open(@@data_path, "wb") do |csv|
+      csv << ["id", "brand", "product", "price"]
+      table.each do |row|
+        csv << row
+      end
+    end
+    return to_delete
+  end
+
+  
 end
