@@ -53,22 +53,38 @@ class Udacidata
     end
   end
   
-def self.destroy(id)
-  to_delete = find(id)
-  table = CSV.table(@@data_path)
-  table.delete_if do |row|
-    row[:id] == id
+  def self.destroy(id)
+    to_delete = find(id)
+    table = CSV.table(@@data_path)
+    table.delete_if do |row|
+      row[:id] == id
+    end
+    File.open(@@data_path, 'w') do |f|
+      f.write(table.to_csv)
+    end
+    return to_delete
   end
-  File.open(@@data_path, 'w') do |f|
-    f.write(table.to_csv)
-  end
-  return to_delete
-end
 
-# def product_where(opts)
-# # if opts == class vale
-# # send class into method
-# # return the array
-# end
-  
+  def self.where(opts={})
+    all_data = self.all
+    wanted_data = []
+    all_data.each do |product|
+      opts.each do |key, value|
+        if product.send(key) == value
+          wanted_data << product
+        end
+      end
+    end
+    return wanted_data
+  end
+
+  def update(opts={})
+    Product.destroy(self.id)
+    updated_or_original_brand = opts[:brand]? opts[:brand] : brand
+    updated_or_original_name = opts[:name]? opts[:name] : brand
+    updated_or_original_price = opts[:price]? opts[:price] : price
+    updated_product = Product.create ({id: self.id, brand: updated_or_original_brand, name: updated_or_original_name, price: updated_or_original_price})
+    return updated_product
+  end
+
 end

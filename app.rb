@@ -72,7 +72,7 @@ puts
 puts "-------------------------------"
 puts "FIND PRODUCT 4 AND UPDATE BRAND"
 puts "-------------------------------"
-# print Product.find(4).update(brand: "NewBrand")
+print Product.find(4).update(brand: "NewBrand")
 
 puts
 puts "--------------"
@@ -90,7 +90,7 @@ puts
 puts "-------------------------------"
 puts "RETURN PRODUCTS WITH BRAND UDACITY"
 puts "-------------------------------"
-# print Product.where(brand: "Udacity")
+print Product.where(brand: "Udacity")
 
 puts
 puts "-------------------------------------"
