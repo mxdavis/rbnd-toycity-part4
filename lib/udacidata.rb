@@ -45,17 +45,18 @@ class Udacidata
  def self.find(id)
    all_data = self.all
    return_id = all_data.find { |p| p.id == id }
-    if !return_id
+    if return_id
+      return return_id
+    else
       raise ProductNotFoundError
     end
-    return return_id
   end
   
-  def self.destroy(id)
+  def self.destroy(opts={})
     to_delete = self.find(id)
     table = CSV.table(@@data_path)
     table.delete_if do |row|
-      row[:id] == id
+      row[:id] == opts[:id]
     end
     CSV.open(@@data_path, "wb") do |csv|
       csv << ["id", "brand", "product", "price"]
