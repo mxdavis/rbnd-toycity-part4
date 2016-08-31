@@ -60,20 +60,28 @@ class Udacidata
     end
   end
   
-  def self.destroy(opts={})
-    to_delete = self.find(id)
-    table = CSV.table(@@data_path)
-    table.delete_if do |row|
-      row[:id] == opts[:id]
-    end
-    CSV.open(@@data_path, "wb") do |csv|
-      csv << ["id", "brand", "product", "price"]
-      table.each do |row|
-        csv << row
-      end
-    end
-    return to_delete
+  # def self.destroy(opts={})
+  #   to_delete = find(id)
+  #   table = CSV.table(@@data_path)
+  #   table.delete_if do |row|
+  #     row[:id] == opts[:id]
+  #   end
+  #   CSV.open(@@data_path, "w") do |csv|
+  #     csv << ["id", "brand", "product", "price"]
+  #     end
+  #   return to_delete
+  # end
+def self.destroy(id)
+  to_delete = find(id)
+  table = CSV.table(@@data_path)
+  table.delete_if do |row|
+    row[:id] == id
   end
+  File.open(@@data_path, 'w') do |f|
+    f.write(table.to_csv)
+  end
+  return to_delete
+end
 
   
 end

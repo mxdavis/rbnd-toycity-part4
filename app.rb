@@ -66,8 +66,8 @@ puts
 puts "-------------------------"
 puts "DESTROY PRODUCT WITH ID 2"
 puts "-------------------------"
-# print Product.destroy(2)
-#
+print Product.destroy(2)
+
 puts
 puts "-------------------------------"
 puts "FIND PRODUCT 4 AND UPDATE BRAND"
@@ -78,18 +78,18 @@ puts
 puts "--------------"
 puts "FIND PRODUCT 1"
 puts "--------------"
-# print Product.find(1)
+print Product.find(1)
+
+puts
+puts "-----------------"
+puts "DESTROY PRODUCT 3"
+puts "-----------------"
+print Product.destroy(3)
 #
-# puts
-# puts "-----------------"
-# puts "DESTROY PRODUCT 3"
-# puts "-----------------"
-# print Product.destroy(3)
-#
-# puts
-# puts "-------------------------------"
-# puts "RETURN PRODUCTS WITH BRAND UDACITY"
-# puts "-------------------------------"
+puts
+puts "-------------------------------"
+puts "RETURN PRODUCTS WITH BRAND UDACITY"
+puts "-------------------------------"
 # print Product.where(brand: "Udacity")
 #
 # puts
