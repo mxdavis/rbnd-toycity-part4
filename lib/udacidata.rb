@@ -19,7 +19,7 @@ class Udacidata
   def self.all
   	all_csv_data = []
   	CSV.foreach(@@data_path, headers: true) do |row|
-      all_csv_data <<  row
+      all_csv_data <<  self.new( id: row["id"], brand: row["brand"], name: row["product"], price: row["price"] )
     end
     return all_csv_data
   end
