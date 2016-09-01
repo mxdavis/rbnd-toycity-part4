@@ -110,23 +110,23 @@ puts
 puts "----------------------------"
 puts "RETURN HASH WITH NAME COUNTS"
 puts "----------------------------"
-# print Analyzable::count_by_name(Product.all)
-#
-# puts
-# puts "----------------------------"
-# puts "RETURN HASH WITH BRAND COUNTS"
-# puts "----------------------------"
-# print Analyzable::count_by_brand(Product.all)
-#
-# puts
-# puts "--------------------"
-# puts "RETURN AVERAGE PRICE"
-# puts "--------------------"
-# print Analyzable::average_price(Product.all)
-#
-# puts
-# puts "--------------------"
-# puts "PRINT SUMMARY REPORT"
-# puts "--------------------"
-# print Analyzable::print_report(Product.all)
-# puts
+print Analyzable::count_by_name(Product.all)
+
+puts
+puts "----------------------------"
+puts "RETURN HASH WITH BRAND COUNTS"
+puts "----------------------------"
+print Analyzable::count_by_brand(Product.all)
+
+puts
+puts "--------------------"
+puts "RETURN AVERAGE PRICE"
+puts "--------------------"
+print Analyzable::average_price(Product.all)
+
+puts
+puts "--------------------"
+puts "PRINT SUMMARY REPORT"
+puts "--------------------"
+print Analyzable::print_report(Product.all)
+puts
