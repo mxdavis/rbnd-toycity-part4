@@ -81,7 +81,7 @@ class Udacidata
   def update(opts={})
     Product.destroy(self.id)
     updated_or_original_brand = opts[:brand]? opts[:brand] : brand
-    updated_or_original_name = opts[:name]? opts[:name] : brand
+    updated_or_original_name = opts[:name]? opts[:name] : name
     updated_or_original_price = opts[:price]? opts[:price] : price
     updated_product = Product.create ({id: self.id, brand: updated_or_original_brand, name: updated_or_original_name, price: updated_or_original_price})
     return updated_product
